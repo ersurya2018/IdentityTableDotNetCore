@@ -1,4 +1,6 @@
 using IdentityTable.Auth;
+using IdentityTable.MailModels;
+using IdentityTable.Repos;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -27,19 +29,30 @@ namespace IdentityTable
         }
 
         public IConfiguration Configuration { get; }
+        private readonly string _policyName = "CorsPolicy";
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
+            services.AddCors(opt =>
+            {
+                opt.AddPolicy(name: _policyName, builder =>
+                 {
+                     builder.AllowAnyOrigin()
+                     .AllowAnyHeader()
+                     .AllowAnyMethod();
+                 });
+            });
             services.AddControllers();
-
+            // In general
+            services.AddTransient<IMailService, MailService>();
+            services.AddTransient<IProductService, ProductService>();
             //For Entity Framework
             services.AddDbContext<ApplicationDbContext>(options =>
             {
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
             });
-
+            services.Configure<MailSettings>(Configuration.GetSection("MailSettings"));
             //for identity
             services.AddIdentity<ApplicationUser,IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
@@ -76,15 +89,18 @@ namespace IdentityTable
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "IdentityTable v1"));
             }
-
+            
             app.UseRouting();
-
+            // Shows UseCors with CorsPolicyBuilder.
+            app.UseCors(_policyName);
             app.UseAuthentication();
 
             app.UseAuthorization();

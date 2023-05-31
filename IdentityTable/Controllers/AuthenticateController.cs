@@ -1,5 +1,6 @@
 ﻿using IdentityTable.Auth;
 using IdentityTable.Models;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -15,7 +16,9 @@ using System.Threading.Tasks;
 
 namespace IdentityTable.Controllers
 {
+   
     [Route("api/[controller]")]
+    [EnableCors("CorsPolicy")]
     [ApiController]
     public class AuthenticateController : ControllerBase
     {
@@ -46,7 +49,7 @@ namespace IdentityTable.Controllers
         {
             var userExists = await _userManager.FindByNameAsync(model.Username);
             if (userExists != null)
-                return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "User already exists!" });
+                return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = false, Message = "User already exists!" });
 
             ApplicationUser user = new ApplicationUser()
             {
@@ -56,9 +59,9 @@ namespace IdentityTable.Controllers
             };
             var result = await _userManager.CreateAsync(user, model.Password);
             if (!result.Succeeded)
-                return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "User creation failed! Please check user details and try again." });
+                return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = false, Message = "User creation failed! Please check user details and try again." });
 
-            return Ok(new Response { Status = "Success", Message = "User created successfully!" });
+            return Ok(new Response { Status = true, Message = "User created successfully!" });
         }
 
         [HttpPost]
@@ -98,7 +101,7 @@ namespace IdentityTable.Controllers
         {
             var userExists = await _userManager.FindByNameAsync(model.Username);
             if (userExists != null)
-                return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "User already exists!" });
+                return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = false, Message = "User already exists!" });
 
             ApplicationUser user = new ApplicationUser()
             {
@@ -108,7 +111,7 @@ namespace IdentityTable.Controllers
             };
             var result = await _userManager.CreateAsync(user, model.Password);
             if (!result.Succeeded)
-                return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "User creation failed! Please check user details and try again." });
+                return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = false, Message = "User creation failed! Please check user details and try again." });
             //Here we write the code for user Roles
             if (!await _roleManager.RoleExistsAsync(UserRoles.Admin))
                 await _roleManager.CreateAsync(new IdentityRole(UserRoles.Admin));
@@ -136,7 +139,7 @@ namespace IdentityTable.Controllers
                 }
             }
 
-            return Ok(new Response { Status = "Success", Message = "User created successfully!" });
+            return Ok(new Response { Status = true, Message = "User created successfully!" });
         }
 
 
