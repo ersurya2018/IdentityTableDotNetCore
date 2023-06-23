@@ -1966,6 +1966,15 @@
         "runtime": {
           "lib/netstandard1.3/System.Xml.XmlSerializer.dll": {}
         }
+      },
+      "Whatsapp.NET/1.2.2": {
+        "type": "package",
+        "compile": {
+          "lib/WhatsAppApi.dll": {}
+        },
+        "runtime": {
+          "lib/WhatsAppApi.dll": {}
+        }
       }
     }
   },
@@ -6694,6 +6703,18 @@
         "system.xml.xmlserializer.4.3.0.nupkg.sha512",
         "system.xml.xmlserializer.nuspec"
       ]
+    },
+    "Whatsapp.NET/1.2.2": {
+      "sha512": "q86p1BtgXqOCERIkjIQ//vyz4bUkjtFGzaasfu4nIyLhXAPx8rN6ZHHN1d3cA/ZxPzl/khR14f8ssYVY64EVqw==",
+      "type": "package",
+      "path": "whatsapp.net/1.2.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/WhatsAppApi.dll",
+        "whatsapp.net.1.2.2.nupkg.sha512",
+        "whatsapp.net.nuspec"
+      ]
     }
   },
   "projectFileDependencyGroups": {
@@ -6709,33 +6730,31 @@
       "Microsoft.EntityFrameworkCore.Tools >= 5.0.0",
       "MimeKit >= 4.0.0",
       "Newtonsoft.Json >= 13.0.3",
-      "Swashbuckle.AspNetCore >= 5.6.3"
+      "Swashbuckle.AspNetCore >= 5.6.3",
+      "Whatsapp.NET >= 1.2.2"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\suryaprajapati\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\Administrator\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\SuryaWorkSpace\\DemoProjects\\IdentityTableNew\\IdentityTableNew\\IdentityTable\\IdentityTable.csproj",
+      "projectUniqueName": "D:\\SelfProject\\IdentityTableDotNetCore\\IdentityTable\\IdentityTable.csproj",
       "projectName": "IdentityTable",
-      "projectPath": "E:\\SuryaWorkSpace\\DemoProjects\\IdentityTableNew\\IdentityTableNew\\IdentityTable\\IdentityTable.csproj",
-      "packagesPath": "C:\\Users\\suryaprajapati\\.nuget\\packages\\",
-      "outputPath": "E:\\SuryaWorkSpace\\DemoProjects\\IdentityTableNew\\IdentityTableNew\\IdentityTable\\obj\\",
+      "projectPath": "D:\\SelfProject\\IdentityTableDotNetCore\\IdentityTable\\IdentityTable.csproj",
+      "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
+      "outputPath": "D:\\SelfProject\\IdentityTableDotNetCore\\IdentityTable\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-      ],
       "configFilePaths": [
-        "C:\\Users\\suryaprajapati\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net5.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -6805,6 +6824,10 @@
           "Swashbuckle.AspNetCore": {
             "target": "Package",
             "version": "[5.6.3, )"
+          },
+          "Whatsapp.NET": {
+            "target": "Package",
+            "version": "[1.2.2, )"
           }
         },
         "imports": [
@@ -6825,8 +6848,20 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.416\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.408\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Whatsapp.NET 1.2.2' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework 'net5.0'. This package may not be fully compatible with your project.",
+      "libraryId": "Whatsapp.NET",
+      "targetGraphs": [
+        "net5.0"
+      ]
+    }
+  ]
 }

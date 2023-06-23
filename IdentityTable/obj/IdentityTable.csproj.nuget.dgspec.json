@@ -1,29 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "E:\\SuryaWorkSpace\\DemoProjects\\IdentityTableNew\\IdentityTableNew\\IdentityTable\\IdentityTable.csproj": {}
+    "D:\\SelfProject\\IdentityTableDotNetCore\\IdentityTable\\IdentityTable.csproj": {}
   },
   "projects": {
-    "E:\\SuryaWorkSpace\\DemoProjects\\IdentityTableNew\\IdentityTableNew\\IdentityTable\\IdentityTable.csproj": {
+    "D:\\SelfProject\\IdentityTableDotNetCore\\IdentityTable\\IdentityTable.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\SuryaWorkSpace\\DemoProjects\\IdentityTableNew\\IdentityTableNew\\IdentityTable\\IdentityTable.csproj",
+        "projectUniqueName": "D:\\SelfProject\\IdentityTableDotNetCore\\IdentityTable\\IdentityTable.csproj",
         "projectName": "IdentityTable",
-        "projectPath": "E:\\SuryaWorkSpace\\DemoProjects\\IdentityTableNew\\IdentityTableNew\\IdentityTable\\IdentityTable.csproj",
-        "packagesPath": "C:\\Users\\suryaprajapati\\.nuget\\packages\\",
-        "outputPath": "E:\\SuryaWorkSpace\\DemoProjects\\IdentityTableNew\\IdentityTableNew\\IdentityTable\\obj\\",
+        "projectPath": "D:\\SelfProject\\IdentityTableDotNetCore\\IdentityTable\\IdentityTable.csproj",
+        "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
+        "outputPath": "D:\\SelfProject\\IdentityTableDotNetCore\\IdentityTable\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\suryaprajapati\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -93,6 +91,10 @@
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[5.6.3, )"
+            },
+            "Whatsapp.NET": {
+              "target": "Package",
+              "version": "[1.2.2, )"
             }
           },
           "imports": [
@@ -113,7 +115,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.416\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.408\\RuntimeIdentifierGraph.json"
         }
       }
     }
